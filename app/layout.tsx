@@ -1,3 +1,4 @@
+import SidePanel from "../components/SidePanel";
 import "../styles/globals.css";
 
 export default function RootLayout({
@@ -11,7 +12,9 @@ export default function RootLayout({
 
       <body>
         <div className="flex">
-          {/**SideBar */}
+          <div className="bg-[#202123] md:min-w-[20rem] text-white max-w-xs overflow-y-auto">
+            <SidePanel />
+          </div>
           {/**Client Provider for notifications */}
           <div className="bg-[#353740] flex-1">{children}</div>
         </div>
