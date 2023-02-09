@@ -4,4 +4,14 @@ module.exports = {
   experimental: {
     appDir: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "openai.com",
+        port: "",
+        pathname: "/content/images/**",
+      },
+    ],
+  },
 };
