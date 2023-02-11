@@ -11,13 +11,11 @@ const NewChat = () => {
   const router = useRouter();
 
   const createNewChat = async () => {
-    console.log("clicked");
-
     const docRef = await addDoc(
       collection(db, "users", session?.user?.email!, "chats"),
       {
         createdAt: serverTimestamp(),
-        useeId: session?.user?.email!,
+        userId: session?.user?.email!,
       }
     );
     console.log("Document written with ID: ", docRef.id);
@@ -25,7 +23,7 @@ const NewChat = () => {
   };
 
   return (
-    <div className="flex-1" onClick={() => console.log("hello")}>
+    <div className="" onClick={() => console.log("hello")}>
       <button className="newChatBtn" onClick={createNewChat}>
         <PlusSmallIcon className="h-4 w-4" />
         New Chat

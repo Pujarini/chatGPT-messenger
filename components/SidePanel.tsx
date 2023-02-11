@@ -3,12 +3,26 @@
 import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
 import NewChat from "./NewChat";
+import { useCollection } from "react-firebase-hooks/firestore";
+import { collection } from "firebase/firestore";
+import { db } from "../firebase";
+import ChatRow from "./ChatRow";
 
 const SidePanel = () => {
   const { data: session } = useSession();
+
+  const [chats, loading, error] = useCollection(
+    session && collection(db, "users", session?.user?.email!, "chats")
+  );
+
   return (
     <div className="flex flex-col h-screen p-2">
       <NewChat />
+      <div className="flex-1 mt-2 text-gray-100 text-sm">
+        {chats?.docs.map((chat) => {
+          return <ChatRow key={chat.id} id={chat.id} />;
+        })}
+      </div>
       {session && (
         <div className="flex items-center justify-center p-2 flex-col ">
           <img
