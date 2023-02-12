@@ -25,13 +25,15 @@ const ChatRow = ({ id }: Props) => {
   }, [pathName]);
 
   const [messages] = useCollection(
-    collection(db, "users", session?.user?.email!, "chats")
+    collection(db, "users", session?.user?.email!, "chats", id, "messages")
   );
 
   const deleteChat = async () => {
     await deleteDoc(doc(db, "users", session?.user?.email!, "chats", id));
     router.replace("/");
   };
+
+  console.log(messages?.docs[messages?.docs.length - 1]?.data());
 
   return (
     <Link

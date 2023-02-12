@@ -26,12 +26,13 @@ export default async function handler(
   const message: Message = {
     text:
       response ||
-      "ChatGPT not working at the moment. Please try gain after sometime!",
+      "ChatGPT not working at the moment. Please try again after sometime!",
     createdAt: admin.firestore.Timestamp.now(),
     user: {
       _id: "ChatGPT",
       name: "ChatGPT",
-      avatar: "https://openai.com/content/images/2022/05/openai-avatar.png",
+      avatar:
+        "https://brandlogovector.com/wp-content/uploads/2023/01/ChatGPT-Icon-Logo-PNG.png",
     },
   };
 
