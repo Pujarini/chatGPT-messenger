@@ -22,7 +22,7 @@ const NewChat = () => {
   };
 
   return (
-    <div className="" onClick={() => console.log("hello")}>
+    <div className="">
       <button className="newChatBtn" onClick={createNewChat}>
         <PlusSmallIcon className="h-4 w-4" />
         New Chat
