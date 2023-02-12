@@ -18,7 +18,6 @@ const NewChat = () => {
         userId: session?.user?.email!,
       }
     );
-    console.log("Document written with ID: ", docRef.id);
     router.push(`/chat/${docRef.id}`);
   };
 

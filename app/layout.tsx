@@ -1,4 +1,5 @@
 import { getServerSession } from "next-auth";
+import ClientProvider from "../components/ClientProvider";
 import Login from "../components/Login";
 import { SessionProvider } from "../components/SessionProvider";
 import SidePanel from "../components/SidePanel";
@@ -26,7 +27,7 @@ export default async function RootLayout({
               <div className="bg-[#202123] md:min-w-[20rem] text-white max-w-xs overflow-y-auto">
                 <SidePanel />
               </div>
-              {/**Client Provider for notifications */}
+              <ClientProvider />
               <div className="bg-[#353740] flex-1">{children}</div>
             </div>
           )}
